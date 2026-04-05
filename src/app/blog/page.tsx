@@ -2,11 +2,12 @@ import { getAllPosts } from "@/lib/posts";
 import ScrollHero from "./(component)/ScrollHero";
 
 type Props = {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 export default async function BlogPage({ searchParams }: Props) {
-  const category = searchParams.category as string | undefined;
+  const resolvedSearchParams = await searchParams;
+  const category = resolvedSearchParams.category as string | undefined;
   let posts = await getAllPosts();
 
   if (category) {
