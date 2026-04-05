@@ -3,10 +3,8 @@ import { ReactNode } from "react";
 
 export default function DayOneLayout({
   children,
-  menuLink,
 }: {
   children: ReactNode;
-  menuLink?: ReactNode;
 }) {
   return (
     <div>
