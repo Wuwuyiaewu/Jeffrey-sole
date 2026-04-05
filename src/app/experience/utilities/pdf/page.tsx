@@ -1,6 +1,7 @@
 import SolutionSection from "./components/SolutionSection";
 import ProblemSection from "./components/ProblemSection";
 import BenefitsSection from "./components/BenefitsSection";
+import { Suspense } from "react";
 import TabsLayout from "../../config-drive/components/TabsLayout";
 
 const tabs = [
@@ -53,7 +54,9 @@ export default function PdfPage() {
       </header>
 
       <div className="tabs-container">
-        <TabsLayout tabs={tabs} />
+        <Suspense>
+          <TabsLayout tabs={tabs} />
+        </Suspense>
       </div>
     </main>
   );

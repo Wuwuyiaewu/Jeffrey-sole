@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import TabsLayout from "@/components/TabsLayout";
 import OverviewSection from "./components/OverviewSection";
 import ProblemsSection from "./components/ProblemsSection";
@@ -52,7 +53,9 @@ export default function EchartsPage() {
         </div>
       </header>
 
-      <TabsLayout tabs={tabs} />
+      <Suspense>
+        <TabsLayout tabs={tabs} />
+      </Suspense>
     </main>
   );
 }

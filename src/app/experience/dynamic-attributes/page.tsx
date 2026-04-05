@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import DemoSection from "./components/DemoSection";
 import { SolutionSection, BenefitsSection } from "./components/ContentSections";
 import { RequirementsSection } from "./components/RequirementsSection";
@@ -38,7 +39,9 @@ export default function DynamicAttributesPage() {
         </div>
       </header>
 
-      <TabsLayout tabs={tabs} />
+      <Suspense>
+        <TabsLayout tabs={tabs} />
+      </Suspense>
     </main>
   );
 }

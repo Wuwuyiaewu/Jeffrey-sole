@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import ProblemSection from "./components/ProblemSection";
 import SolutionSection from "./components/SolutionSection";
 import DemoSection from "./components/DemoSection";
@@ -59,7 +60,9 @@ export default function ConfigDrivenPage() {
         </div>
       </header>
 
-      <TabsLayout tabs={tabs} />
+      <Suspense>
+        <TabsLayout tabs={tabs} />
+      </Suspense>
     </main>
   );
 }

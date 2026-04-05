@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import TabsLayout from "@/components/TabsLayout";
 import ProblemSection from "./components/ProblemSection";
 import SolutionSection from "./components/SolutionSection";
@@ -53,7 +54,9 @@ export default function ValidatePage() {
         </div>
       </header>
 
-      <TabsLayout tabs={tabs} />
+      <Suspense>
+        <TabsLayout tabs={tabs} />
+      </Suspense>
     </main>
   );
 }
