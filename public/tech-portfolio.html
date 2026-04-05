@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技術履歷 - Frontend Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            padding: 0.375rem 0.75rem;
+            margin: 0.25rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .tech-badge:hover {
+            transform: scale(1.05);
+        }
+        
+        .code-preview {
+            background: #1e293b;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            overflow-x: auto;
+            position: relative;
+        }
+        
+        .code-preview pre {
+            margin: 0;
+            color: #e2e8f0;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        .keyword { color: #c792ea; }
+        .string { color: #c3e88d; }
+        .function { color: #82aaff; }
+        .comment { color: #676e95; font-style: italic; }
+        .tag { color: #f07178; }
+        .attr { color: #c792ea; }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center fade-in-up">
+                <h1 class="text-5xl font-bold mb-4">前端開發工程師</h1>
+                <p class="text-xl mb-6 text-gray-100">專注於企業級 ERP 系統開發 | Vue.js 專家</p>
+                <div class="flex justify-center gap-4 flex-wrap">
+                    <a href="#skills" class="bg-white text-purple-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition">技術棧</a>
+                    <a href="#projects" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-purple-600 transition">專案展示</a>
+                    <a href="#code" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-purple-600 transition">程式碼示例</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">核心技術能力</h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Frontend -->
+                    <div class="card-hover bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                        <div class="text-4xl mb-4">⚡</div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">前端框架</h3>
+                        <div class="space-y-2">
+                            <div class="tech-badge bg-green-100 text-green-700">Vue 3 Composition API</div>
+                            <div class="tech-badge bg-blue-100 text-blue-700">TypeScript</div>
+                            <div class="tech-badge bg-purple-100 text-purple-700">Pinia (State Management)</div>
+                            <div class="tech-badge bg-orange-100 text-orange-700">Vue Router</div>
+                        </div>
+                    </div>
+
+                    <!-- UI/UX -->
+                    <div class="card-hover bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                        <div class="text-4xl mb-4">🎨</div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">UI 開發</h3>
+                        <div class="space-y-2">
+                            <div class="tech-badge bg-indigo-100 text-indigo-700">Element Plus</div>
+                            <div class="tech-badge bg-cyan-100 text-cyan-700">Tailwind CSS</div>
+                            <div class="tech-badge bg-pink-100 text-pink-700">UnoCSS</div>
+                            <div class="tech-badge bg-teal-100 text-teal-700">響應式設計</div>
+                        </div>
+                    </div>
+
+                    <!-- Development -->
+                    <div class="card-hover bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                        <div class="text-4xl mb-4">🛠️</div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">開發工具</h3>
+                        <div class="space-y-2">
+                            <div class="tech-badge bg-yellow-100 text-yellow-700">Vite</div>
+                            <div class="tech-badge bg-red-100 text-red-700">Git / GitLab</div>
+                            <div class="tech-badge bg-gray-100 text-gray-700">ESLint / Prettier</div>
+                            <div class="tech-badge bg-green-100 text-green-700">RESTful API</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">專案經驗</h2>
+                
+                <div class="space-y-8">
+                    <!-- Project 1 -->
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-lg">
+                        <div class="flex items-start gap-4">
+                            <div class="text-4xl">📦</div>
+                            <div class="flex-1">
+                                <h3 class="text-2xl font-bold mb-2 text-gray-800">企業 ERP 系統 - 取樣申請管理模組</h3>
+                                <p class="text-gray-600 mb-4">完整的供應商取樣申請流程管理系統，支援多角色權限控制與複雜表單驗證</p>
+                                
+                                <div class="timeline-item mb-6">
+                                    <div class="timeline-dot"></div>
+                                    <div class="space-y-3 ml-4">
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">🎯 核心功能實現</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• 多階段表單流程（基本資訊、樣品資訊、品質檢查清單）</li>
+                                                <li>• 動態 Grid 佈局系統，支援響應式排版</li>
+                                                <li>• 複雜的角色權限控制（Supplier / CE / BG_ENG）</li>
+                                                <li>• 檔案上傳與 PLM 系統整合</li>
+                                                <li>• 完整的表單驗證機制與錯誤處理</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 mb-2">💡 技術亮點</h4>
+                                            <ul class="text-gray-600 space-y-1 text-sm">
+                                                <li>• 使用 Composition API 實現高度可複用的業務邏輯</li>
+                                                <li>• 自定義 Validator 工廠函數，提升驗證邏輯靈活性</li>
+                                                <li>• Grid Template Areas 實現靈活的版面配置</li>
+                                                <li>• TypeScript 強型別確保程式碼品質</li>
+                                                <li>• 狀態管理與路由導航整合</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-badge bg-green-100 text-green-700">Vue 3</span>
+                                    <span class="tech-badge bg-blue-100 text-blue-700">TypeScript</span>
+                                    <span class="tech-badge bg-purple-100 text-purple-700">Pinia</span>
+                                    <span class="tech-badge bg-indigo-100 text-indigo-700">Element Plus</span>
+                                    <span class="tech-badge bg-orange-100 text-orange-700">Vue Router</span>
+                                    <span class="tech-badge bg-pink-100 text-pink-700">UnoCSS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="card-hover bg-white p-8 rounded-xl shadow-lg">
+                        <div class="flex items-start gap-4">
+                            <div class="text-4xl">🔧</div>
+                            <div class="flex-1">
+                                <h3 class="text-2xl font-bold mb-2 text-gray-800">可複用組件庫開發</h3>
+                                <p class="text-gray-600 mb-4">基於 Element Plus 封裝的企業級可複用組件，統一 UI 規範與業務邏輯</p>
+                                
+                                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h4 class="font-semibold text-gray-800 mb-2">📝 表單組件</h4>
+                                        <ul class="text-sm text-gray-600 space-y-1">
+                                            <li>• Input 組件（支援多種驗證模式）</li>
+                                            <li>• DatePicker 組件（日期範圍控制）</li>
+                                            <li>• CheckBox / RadioBox 動態選項</li>
+                                            <li>• FileUpload 檔案上傳組件</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h4 class="font-semibold text-gray-800 mb-2">🎛️ 組件特性</h4>
+                                        <ul class="text-sm text-gray-600 space-y-1">
+                                            <li>• v-model 雙向綁定支援</li>
+                                            <li>• 國際化 (i18n) 整合</li>
+                                            <li>• 動態 ReadMode 權限控制</li>
+                                            <li>• 統一的樣式與驗證規範</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-badge bg-green-100 text-green-700">Vue 3</span>
+                                    <span class="tech-badge bg-indigo-100 text-indigo-700">Element Plus</span>
+                                    <span class="tech-badge bg-blue-100 text-blue-700">TypeScript</span>
+                                    <span class="tech-badge bg-teal-100 text-teal-700">Component Design</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Examples Section -->
+    <section id="code" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">程式碼示例</h2>
+                
+                <div class="space-y-8">
+                    <!-- Example 1: Composition API -->
+                    <div class="card-hover">
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">1️⃣ 動態表單驗證器 - Validator Factory Pattern</h3>
+                        <div class="code-preview">
+                            <pre><span class="comment">/**
+ * 建立數量驗證器 - 展示高階函數與閉包應用
+ * 支援動態角色權限檢查
+ */</span>
+<span class="keyword">export const</span> <span class="function">createQuantityValidator</span> = (
+  <span class="attr">contextGetter</span>: () => <span class="keyword">CheckQuantityContext</span>
+) => {
+  <span class="keyword">return</span> (<span class="attr">rule</span>, <span class="attr">value</span>, <span class="attr">callback</span>) => {
+    <span class="keyword">const</span> { quantity, role } = <span class="function">contextGetter</span>();
+    
+    <span class="comment">// 角色權限檢查</span>
+    <span class="keyword">if</span> (role !== <span class="string">'SUPPLIER'</span>) {
+      <span class="keyword">return</span> <span class="function">callback</span>();
+    }
+    
+    <span class="comment">// 必填驗證</span>
+    <span class="keyword">if</span> (!quantity || quantity === <span class="string">0</span>) {
+      <span class="keyword">return</span> <span class="function">callback</span>(<span class="keyword">new</span> <span class="function">Error</span>(<span class="string">'數量為必填'</span>));
+    }
+    
+    <span class="comment">// 正整數驗證</span>
+    <span class="keyword">if</span> (!/^\d+$/<span class="function">.test</span>(<span class="function">String</span>(quantity))) {
+      <span class="keyword">return</span> <span class="function">callback</span>(<span class="keyword">new</span> <span class="function">Error</span>(<span class="string">'數量必須為正整數'</span>));
+    }
+    
+    <span class="function">callback</span>();
+  };
+};</pre>
+                        </div>
+                    </div>
+
+                    <!-- Example 2: Grid Layout -->
+                    <div class="card-hover">
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">2️⃣ 響應式 Grid 佈局配置</h3>
+                        <div class="code-preview">
+                            <pre><span class="comment">/**
+ * 使用 CSS Grid Template Areas 實現靈活佈局
+ * 支援動態欄位排版
+ */</span>
+<span class="keyword">export const</span> <span class="attr">BasicInformationGridStyle</span>: <span class="keyword">StyleValue</span> = {
+  <span class="attr">display</span>: <span class="string">'grid'</span>,
+  <span class="attr">gridTemplateColumns</span>: <span class="string">'repeat(4, 1fr)'</span>,
+  <span class="attr">gridTemplateRows</span>: <span class="string">'auto auto auto'</span>,
+  <span class="attr">gridTemplateAreas</span>: [
+    <span class="string">`'formNo vendorPartNo deltaPartNo partDescription'`</span>,
+    <span class="string">`'plant materialCategory oaCode toolingId'`</span>,
+    <span class="string">`'attachment attachment downloadPackage .'`</span>,
+  ].<span class="function">join</span>(<span class="string">' '</span>)
+};
+
+<span class="comment">// 組件中動態應用</span>
+<span class="keyword">&lt;div</span> <span class="attr">class</span>=<span class="string">"grid gap-2"</span> <span class="attr">:style</span>=<span class="string">"gridStyle"</span><span class="keyword">&gt;</span>
+  <span class="keyword">&lt;component</span> 
+    <span class="attr">:is</span>=<span class="string">"field.component"</span>
+    <span class="attr">v-for</span>=<span class="string">"(field, key) in columnInputConfig"</span>
+    <span class="attr">:style</span>=<span class="string">"{ 'grid-area': field.gridArea }"</span>
+  <span class="keyword">/&gt;</span>
+<span class="keyword">&lt;/div&gt;</span></pre>
+                        </div>
+                    </div>
+
+                    <!-- Example 3: Component Pattern -->
+                    <div class="card-hover">
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">3️⃣ 權限控制邏輯 - 函數式編程</h3>
+                        <div class="code-preview">
+                            <pre><span class="comment">/**
+ * 動態解析欄位的 ReadMode 狀態
+ * 支援函數式與靜態兩種配置方式
+ */</span>
+<span class="keyword">const</span> <span class="function">resolveReadMode</span> = (
+  <span class="attr">field</span>: <span class="keyword">SampleInfomationInputFieldConfig</span>
+) => {
+  <span class="keyword">if</span> (<span class="keyword">typeof</span> field.isReadMode === <span class="string">'function'</span>) {
+    <span class="keyword">return</span> field.<span class="function">isReadMode</span>({
+      <span class="attr">model</span>: props.modelValue,
+      <span class="attr">role</span>: getAuthStore.mainRole,
+      <span class="attr">status</span>: getSamplingStore.status
+    });
+  }
+  <span class="keyword">return</span> !!field.isReadMode;
+};
+
+<span class="comment">// 使用範例：動態權限配置</span>
+<span class="keyword">const</span> <span class="attr">fieldConfig</span> = {
+  <span class="attr">isReadMode</span>: ({ role, status }) => 
+    role === <span class="string">'CE'</span> && status === <span class="string">'APPROVED'</span>
+};</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Highlights -->
+    <section class="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">技術特色</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover">
+                        <div class="text-4xl mb-4">🎯</div>
+                        <h3 class="font-bold mb-2">類型安全</h3>
+                        <p class="text-sm text-gray-600">全面使用 TypeScript，確保程式碼品質與可維護性</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover">
+                        <div class="text-4xl mb-4">⚡</div>
+                        <h3 class="font-bold mb-2">效能優化</h3>
+                        <p class="text-sm text-gray-600">Composition API 與響應式系統，實現高效能渲染</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover">
+                        <div class="text-4xl mb-4">🔒</div>
+                        <h3 class="font-bold mb-2">權限控制</h3>
+                        <p class="text-sm text-gray-600">細粒度的角色權限管理，確保資料安全性</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover">
+                        <div class="text-4xl mb-4">🧩</div>
+                        <h3 class="font-bold mb-2">組件化</h3>
+                        <p class="text-sm text-gray-600">高度可複用的組件設計，提升開發效率</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">系統架構設計</h2>
+                
+                <div class="bg-gradient-to-br from-purple-100 to-blue-100 p-8 rounded-xl shadow-lg">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg">
+                            <h3 class="font-bold text-lg mb-4 text-purple-600">📋 視圖層 (View)</h3>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li>• SampleApplicationFormDetail.vue</li>
+                                <li>• BasicInfomation.vue</li>
+                                <li>• SampleInformation.vue</li>
+                                <li>• ComponentQualificationChecklist.vue</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg">
+                            <h3 class="font-bold text-lg mb-4 text-blue-600">🎮 邏輯層 (Logic)</h3>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li>• sampling-logic-controller.ts</li>
+                                <li>• Validator Factory Functions</li>
+                                <li>• State Management (Pinia)</li>
+                                <li>• API Services Integration</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg">
+                            <h3 class="font-bold text-lg mb-4 text-green-600">🧩 組件層 (Components)</h3>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li>• Input.vue</li>
+                                <li>• DatePickComponent.vue</li>
+                                <li>• CheckBox.vue / RadioBox.vue</li>
+                                <li>• FileUpload.vue</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 text-center">
+                        <div class="inline-block bg-white px-6 py-3 rounded-lg shadow">
+                            <p class="text-sm text-gray-600">採用 <span class="font-bold text-purple-600">MVVM 架構</span> + <span class="font-bold text-blue-600">組件化設計</span>，實現高內聚低耦合</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg mb-4">🚀 專注於建立高品質、可維護的企業級前端應用</p>
+            <p class="text-gray-200">Vue.js • TypeScript • Enterprise Solutions</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card-hover').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
