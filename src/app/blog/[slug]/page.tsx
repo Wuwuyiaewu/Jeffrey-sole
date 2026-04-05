@@ -1,12 +1,14 @@
 import { getPost } from "@/lib/posts";
 
 type Props = {
-  params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 export default async function BlogPostPage({ params, searchParams }: Props) {
-  const post = await getPost(params.slug);
+  const { slug } = await params;
+  const resolvedSearchParams = await searchParams;
+  const post = await getPost(slug);
 
   if (!post) {
     return <div>Post not found</div>;
@@ -21,7 +23,7 @@ export default async function BlogPostPage({ params, searchParams }: Props) {
       </p>
 
       {/* 示範讀取 searchParams */}
-      {searchParams.ref && <p>Referred from: {searchParams.ref}</p>}
+      {resolvedSearchParams.ref && <p>Referred from: {resolvedSearchParams.ref}</p>}
     </div>
   );
 }
