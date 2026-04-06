@@ -40,7 +40,7 @@ const STAGE_COLORS: Record<
 
 export default function ExperiencePage() {
   return (
-    <main className="p-8 bg-white dark:bg-neutral-900 text-black dark:text-white min-h-screen max-w-4xl">
+    <main className="p-8 min-h-screen max-w-4xl">
       {/* Header */}
       <div className="mb-10">
         <h1 className="text-2xl font-bold mb-1">開發經驗路線圖</h1>

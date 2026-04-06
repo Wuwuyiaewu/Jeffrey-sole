@@ -182,34 +182,28 @@ const result = unsafeOperation() // eslint-disable-line @typescript-eslint/no-ex
 import CodeBlock from "@/components/CodeBlock";
 
 const colorMap: Record<string, { border: string; step: string; label: string; noteGood: string; sideGood: string }> = {
-  blue:   { border: "border-blue-500",   step: "bg-blue-500",   label: "text-blue-700",   noteGood: "text-blue-700",   sideGood: "bg-blue-50 border-blue-400" },
-  purple: { border: "border-purple-500", step: "bg-purple-500", label: "text-purple-700", noteGood: "text-purple-700", sideGood: "bg-purple-50 border-purple-400" },
-  green:  { border: "border-green-500",  step: "bg-green-500",  label: "text-green-700",  noteGood: "text-green-700",  sideGood: "bg-green-50 border-green-400" },
-  orange: { border: "border-orange-500", step: "bg-orange-500", label: "text-orange-700", noteGood: "text-orange-700", sideGood: "bg-orange-50 border-orange-400" },
+  blue:   { border: "border-blue-500",   step: "bg-blue-500",   label: "text-blue-400",   noteGood: "text-blue-400",   sideGood: "bg-zinc-950 border-blue-500" },
+  purple: { border: "border-purple-500", step: "bg-purple-500", label: "text-purple-400", noteGood: "text-purple-400", sideGood: "bg-zinc-950 border-purple-500" },
+  green:  { border: "border-green-500",  step: "bg-green-500",  label: "text-green-400",  noteGood: "text-green-400",  sideGood: "bg-zinc-950 border-green-500" },
+  orange: { border: "border-orange-500", step: "bg-orange-500", label: "text-orange-400", noteGood: "text-orange-400", sideGood: "bg-zinc-950 border-orange-500" },
 };
 
 export default function ESLintPage() {
   return (
-    <main className="min-h-screen bg-stone-50">
-      <header className="relative bg-gradient-to-br from-indigo-900 via-indigo-800 to-slate-900 text-white py-10 overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px)`,
-          }}
-        />
+    <main className="min-h-screen bg-[#0d0d0d] text-white">
+      <header className="relative bg-[#0d0d0d] text-white py-16 overflow-hidden border-b border-white/10">
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-7xl mx-auto text-center">
-            <div className="inline-block bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20">
-              <span className="text-sm font-medium tracking-wide">Environment Setup — Code Quality</span>
+            <div className="inline-block bg-white/5 px-4 py-2 rounded-full mb-6 border border-white/10">
+              <span className="text-sm font-medium tracking-wide text-zinc-400">Environment Setup — Code Quality</span>
             </div>
             <h1 className="text-6xl font-black mb-6 tracking-tight">ESLint</h1>
-            <p className="text-xl text-indigo-200 leading-relaxed">
+            <p className="text-xl text-zinc-400 leading-relaxed">
               Flat Config、Vue 3 + TypeScript 規則整合 — 讓工具代替人工 review 風格
             </p>
             <div className="flex justify-center gap-3 mt-6 flex-wrap">
               {["Flat Config", "Vue 3", "TypeScript", "CI 整合"].map((tag) => (
-                <span key={tag} className="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm">
+                <span key={tag} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm text-zinc-400">
                   {tag}
                 </span>
               ))}
@@ -225,23 +219,23 @@ export default function ESLintPage() {
             <div
               id={section.id}
               key={section.step}
-              className={`bg-white border-l-4 ${c.border} p-8 rounded-lg shadow-sm scroll-mt-8`}
+              className={`bg-zinc-900 border-l-4 ${c.border} p-8 rounded-lg scroll-mt-8`}
             >
-              <h3 className="text-2xl font-bold mb-3 text-slate-900">{section.title}</h3>
-              <p className="text-stone-600 mb-6 leading-relaxed">{section.desc}</p>
+              <h3 className="text-2xl font-bold mb-3 text-white">{section.title}</h3>
+              <p className="text-zinc-400 mb-6 leading-relaxed">{section.desc}</p>
 
               {section.content.type === "compare" && (
                 <div className="grid md:grid-cols-2 gap-4">
                   {[section.content.left!, section.content.right!].map((side) => (
                     <div
                       key={side.label}
-                      className={`rounded-lg p-5 border-2 ${side.bad ? "bg-stone-50 border-stone-200" : c.sideGood}`}
+                      className={`rounded-lg p-5 border-2 ${side.bad ? "bg-[#0d0d0d] border-zinc-700" : c.sideGood}`}
                     >
-                      <div className={`text-sm font-bold mb-3 ${side.bad ? "text-stone-500" : c.label}`}>
+                      <div className={`text-sm font-bold mb-3 ${side.bad ? "text-zinc-500" : c.label}`}>
                         {side.label}
                       </div>
                       <CodeBlock code={side.code} language="typescript" />
-                      <div className={`mt-3 text-sm font-medium ${side.bad ? "text-red-600" : c.noteGood}`}>
+                      <div className={`mt-3 text-sm font-medium ${side.bad ? "text-red-400" : c.noteGood}`}>
                         {side.bad ? "✗ " : "✓ "}{side.note}
                       </div>
                     </div>
@@ -252,7 +246,7 @@ export default function ESLintPage() {
               {section.content.type === "steps" && (
                 <div className="space-y-4">
                   {section.content.items!.map((item, i) => (
-                    <div key={i} className={`rounded-xl p-5 border-2 bg-stone-50 ${c.border}`}>
+                    <div key={i} className={`rounded-xl p-5 border bg-[#0d0d0d] ${c.border}`}>
                       <div className={`text-sm font-bold mb-3 ${c.label}`}>{item.label}</div>
                       <CodeBlock code={item.code} language="typescript" />
                     </div>

@@ -1,13 +1,11 @@
 "use client";
 
-import {
-  SandpackCodeViewer,
-  SandpackProvider,
-} from "@codesandbox/sandpack-react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 interface CodeBlockProps {
   code: string;
-  language?: "typescript" | "javascript" | "tsx" | "jsx" | "css" | "html";
+  language?: string;
 }
 
 export default function CodeBlock({
@@ -15,15 +13,14 @@ export default function CodeBlock({
   language = "typescript",
 }: CodeBlockProps) {
   return (
-    <SandpackProvider
-      files={{ [`/index.${language}`]: code }}
-      theme="dark"
-      options={{ visibleFiles: [`/index.${language}`] }}
+    <SyntaxHighlighter
+      language={language}
+      style={vscDarkPlus}
+      showLineNumbers
+      wrapLines
+      customStyle={{ margin: 0, borderRadius: "0.5rem", fontSize: "0.875rem" }}
     >
-      <SandpackCodeViewer
-        showLineNumbers
-        wrapContent
-      />
-    </SandpackProvider>
+      {code}
+    </SyntaxHighlighter>
   );
 }
